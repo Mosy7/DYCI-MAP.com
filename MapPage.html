@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DYCI INTERACTIVE MAP</MAP></title>
+        <link rel="stylesheet" href="Style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <script src="js/script.js"></script>
+    </head>
+
+    <body>
+        <div class="containter">
+            <div class="Image">
+                <img src="DYCI LOGO.png" class="center">
+             </div>
+            <div class="text">
+                <div class="myform">
+                    <form >
+                        <h1 style="text-align: center;", 
+                            style="position: absolute;">
+                            DYCI INTERACTIVE MAP
+                        </h1>
+                    </form>
+                </div>
+            </div>
+
+            <div class="results">
+                <h2>Search Results</h2>
+                <ul id="searchResults">
+                    <!-- Placeholder for search results -->
+                </ul>
+            </div>
+            <br>
+
+            <div class="image-container" id="mapContainer">
+                <img src="map.svg" class="map" id="mapImage">
+            </div>
+                <div class="details">
+                    <h2>Details</h2>
+                    <!-- Placeholder for details -->
+                    
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const mapContainer = document.getElementById('mapContainer');
+                        const mapImage = document.getElementById('mapImage');
+                        let isDragging = false;
+                        let startOffsetX = 0;
+                        let startOffsetY = 0;
+                        let zoomLevel = 1;
+                
+                        mapContainer.addEventListener('mousedown', handleMouseDown);
+                        document.addEventListener('mousemove', handleMouseMove);
+                        document.addEventListener('mouseup', handleMouseUp);
+                        mapContainer.addEventListener('wheel', handleWheel);
+                
+                        function handleMouseDown(event) {
+                            isDragging = true;
+                            startOffsetX = event.clientX - mapImage.offsetLeft;
+                            startOffsetY = event.clientY - mapImage.offsetTop;
+                        }
+                
+                        function handleMouseMove(event) {
+                            if (isDragging) {
+                                const offsetX = event.clientX - startOffsetX;
+                                const offsetY = event.clientY - startOffsetY;
+                                mapImage.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${zoomLevel})`;
+                            }
+                        }
+                
+                        function handleMouseUp() {
+                            isDragging = false;
+                        }
+                
+                        function handleWheel(event) {
+                            event.preventDefault();
+                            const delta = Math.sign(event.deltaY);
+                            const scaleStep = 0.1;
+                            zoomLevel += delta * scaleStep;
+                            zoomLevel = Math.max(zoomLevel, 0.1); // Limit zoom level
+                            mapImage.style.transform = `scale(${zoomLevel})`;
+                        }
+                    });
+                </script>
+                
+              <div class="box">
+                <input type="checkbox" id="check">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search Room">
+                        <label for="check" class="icon">
+                        <i class="fas fa-search"></i>
+                        </label>
+                    </div>
+              </div>
+                  
+        
+        </div>
+        
+      <div>
+        <a href="admin.html" class="admin-link">I am an admin</a>
+      </div>
+        
+
+</body>
+</html>

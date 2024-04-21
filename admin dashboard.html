@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admindash.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Admin Dashboard Panel</title>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="logo-name">
+            <div class="logo-image">
+               <img src="images/logo.png" alt="">
+            </div>
+            <span class="logo_name">Admin D</span>
+        </div>
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="#">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Make Changes</span>
+                </a></li>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Logout</span>
+                </a></li>
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Dark Mode</span>
+                    </a>
+                    <div class="mode-toggle">
+                      <span class="switch"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="dashboard">
+        <div class="dash-content">
+            <div class="background-panel"> <!-- Add a container with sky blue background -->
+                <!-- Input fields or dropdowns for schedule, room, and building -->
+                <div class="input-container">
+                    <label for="schedule">Schedule:</label>
+                    <input type="datetime-local" id="schedule" name="schedule">
+                </div>
+                <div class="input-container">
+                    <label for="room">Room:</label>
+                    <input type="text" id="room" name="room">
+                </div>
+                <div class="input-container">
+                    <label for="building">Building:</label>
+                    <input type="text" id="building" name="building">
+                </div>
+                <div class="input-container">
+                    <label for="professor">Professor:</label>
+                    <input type="text" id="professor" name="professor">
+                </div>
+                <button onclick="updateInfo()">Update Info</button> <!-- Keep the button outside the container -->
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
